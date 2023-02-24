@@ -21,7 +21,7 @@ Run the program with the following command: ```./cube``` .
 
 ## Visualization
 
-Here is an image of the 3D rotating cube:
+this is the preview of the 3D rotating cube:
 
 ![3D Rotating Cube](./img/Cube.gif)
 
