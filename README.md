@@ -23,7 +23,7 @@ Run the program with the following command: ```./cube``` .
 
 Here is an image of the 3D rotating cube:
 
-![3D Rotating Cube](./img/capture1.png)
+![3D Rotating Cube](./img/Cube.gif)
 
 ## Credits
 
