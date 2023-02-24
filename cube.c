@@ -4,16 +4,17 @@
 #include <unistd.h>
 
 float A, B, C;
+
 int width = 160, height = 44;
 float zBuffer[160 * 44];
 char buffer[160 * 44];
-int backgroundASCIICode = '.';
-int distanceCam = 150;
+int backgroundASCIICode = ' ';
+int distanceCam = 100;
 float horizontalOffset;
-int cubeWidth;
+int cubeWidth = 20;
 float k1 = 40;
 
-float speedincrement = 0.6;
+float speedincrement = 1.0;
 
 float x, y, z;
 float ooz;
@@ -32,7 +33,7 @@ float calculateY(int i, int j, int k) {
 }
 
 float calculateZ(int i, int j, int k) {
-    return j * cos(A) * cos(B) - j * sin(A) * cos(B) + i * sin(B);
+    return k * cos(A) * cos(B) - j * sin(A) * cos(B) + i * sin(B);
 }
 
 void calculateForSurface(float cubeX, float cubeY, float cubeZ, int ch){
@@ -41,7 +42,7 @@ void calculateForSurface(float cubeX, float cubeY, float cubeZ, int ch){
     z = calculateZ(cubeX, cubeY, cubeZ) + distanceCam;
 
     ooz = 1 / z;
-    xp = (int)(width / 2 + horizontalOffset + k1 * ooz * x * 2);
+    xp = (int)(width / 2 - 2 * cubeWidth +  k1 * ooz * x * 2);
     yp = (int)(height / 2 + k1 * ooz * y);
 
     idx = xp + yp * width;
@@ -63,7 +64,7 @@ int main(){
         
         for (float cubeX = -cubeWidth; cubeX < cubeWidth; cubeX += speedincrement){
             for (float cubeY = -cubeWidth; cubeY < cubeWidth; cubeY += speedincrement){
-                calculateForSurface(cubeX, cubeY, -cubeWidth, '@');
+                calculateForSurface(cubeX, cubeY, -cubeWidth, '.');
                 calculateForSurface(cubeWidth, cubeY, cubeX, '$');
                 calculateForSurface(-cubeWidth, cubeY, -cubeX, '~');
                 calculateForSurface(-cubeX, cubeY, cubeWidth, '#');
@@ -76,10 +77,11 @@ int main(){
         for (int k = 0; k < width * height; k++){
             putchar(k % width ? buffer[k] : 10);
         }
-        A += 0.07;
-        B += 0.03;
-        C += 0.05;
-        usleep(8000 * 2);
+        A += 0.05;
+        B += 0.05;
+        C += 0.01;
+        usleep(0);
+
     }
     return 0;
 }           
