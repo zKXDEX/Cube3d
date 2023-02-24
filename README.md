@@ -16,7 +16,7 @@ To run this program, you need to have a C compiler and a graphics library compat
 
 Download or clone the repository from GitHub.
 Open a terminal or command prompt in the project directory.
-Compile the program by executing the following command: ```gcc -lm cube.c -o cube```.
+Compile the program by executing the following command: ```gcc -lm cube.c -o cube```.<br>
 Run the program with the following command: ```./cube``` .
 
 ## Credits
