@@ -19,6 +19,12 @@ Open a terminal or command prompt in the project directory.
 Compile the program by executing the following command: ```gcc -lm cube.c -o cube```.<br>
 Run the program with the following command: ```./cube``` .
 
+## Visualization
+
+Here is an image of the 3D rotating cube:
+
+![3D Rotating Cube](./img/capture1.png)
+
 ## Credits
 
 This program was created by Kdex as part of a personal project. Its use, modification, and distribution are allowed under the terms of the [GPL License](https://en.wikipedia.org/wiki/GNU_General_Public_License "GPL License").
